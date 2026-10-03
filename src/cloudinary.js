@@ -3,14 +3,31 @@
 
 import { CLOUD_NAME, UPLOAD_PRESET } from './config';
 
-/** Build a Cloudinary delivery URL for a public_id + transformation string. */
-export function transformUrl(publicId, transformation) {
-  return `https://res.cloudinary.com/${CLOUD_NAME}/image/upload/${transformation}/${publicId}`;
+/** Cloudinary's public demo cloud — used for one-click sample photos. */
+export const DEMO_CLOUD = 'demo';
+
+/**
+ * Sample photos anyone can try instantly — no upload needed.
+ * Every URL below was verified to return HTTP 200 before wiring in.
+ */
+export const SAMPLES = [
+  { id: 'sample-portrait', label: 'Portrait', publicId: 'sample', cloud: DEMO_CLOUD },
+  { id: 'sample-fashion', label: 'Fashion', publicId: 'docs/models', cloud: DEMO_CLOUD },
+  { id: 'sample-nature', label: 'Nature', publicId: 'cld-sample-5', cloud: DEMO_CLOUD },
+];
+
+/**
+ * Build a Cloudinary delivery URL for a public_id + transformation string.
+ * cloudName override lets sample photos live on the demo cloud while
+ * user uploads stay on the configured cloud.
+ */
+export function transformUrl(publicId, transformation, cloudName = CLOUD_NAME) {
+  return `https://res.cloudinary.com/${cloudName}/image/upload/${transformation}/${publicId}`;
 }
 
 /** Small thumbnail URL used in the transform panel + recent strip. */
-export function thumbUrl(publicId, w = 160, h = 120) {
-  return transformUrl(publicId, `c_fill,g_auto,w_${w},h_${h},f_auto,q_auto`);
+export function thumbUrl(publicId, w = 160, h = 120, cloudName = CLOUD_NAME) {
+  return transformUrl(publicId, `c_fill,g_auto,w_${w},h_${h},f_auto,q_auto`, cloudName);
 }
 
 /**

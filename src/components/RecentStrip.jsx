@@ -10,10 +10,10 @@ export default function RecentStrip({ items, activePublicId, onSelect }) {
           <button
             key={item.public_id}
             className={`recent-thumb ${item.public_id === activePublicId ? 'active' : ''}`}
-            onClick={() => onSelect(item.public_id)}
+            onClick={() => onSelect(item)}
             title={item.public_id}
           >
-            <img src={thumbUrl(item.public_id, 120, 120)} alt="" loading="lazy" />
+            <img src={thumbUrl(item.public_id, 120, 120, item.cloud)} alt="" loading="lazy" />
           </button>
         ))}
       </div>

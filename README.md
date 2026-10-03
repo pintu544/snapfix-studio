@@ -7,9 +7,10 @@ Built for the **Pixels to Products — Cloudinary AI Hackathon 2026** · Track *
 ## The problem
 
 Everyone takes photos, but making them look great still needs editing skills or heavyweight apps.
-SnapFix Studio is a zero-install web tool: drop in any photo and get studio-quality results in one
-click — AI background removal, AI-generated background replacement, auto-enhance, and smart crops
-for every social format. No accounts, no backend, no waiting.
+SnapFix Studio is a zero-install web tool: drop in any photo — or try an instant sample — and get
+studio-quality results in one click: AI background removal, AI-generated background replacement,
+generative AI outpainting to any aspect ratio, auto-enhance, 2x AI upscale, creative effects, smart
+crops, and a one-click Social Kit that exports five platform-ready sizes. No accounts, no backend, no waiting.
 
 ## How Cloudinary is used (core, not just hosting)
 
@@ -19,10 +20,15 @@ transformed, optimized, and delivered by Cloudinary:
 | Feature | Cloudinary API / transformation |
 |---|---|
 | Upload with progress | `POST https://api.cloudinary.com/v1_1/<cloud>/image/upload` with an **unsigned upload preset** (XHR for progress events) |
+| Instant sample photos | Public images served from Cloudinary's demo cloud — no upload needed to try the app |
 | AI background removal | `e_background_removal` (Cloudinary AI add-on) |
 | AI background replace | `e_gen_background_replace:prompt_<user text>` (generative AI) |
 | Auto enhance | `e_improve` |
+| AI upscale | `e_upscale` (generative 2x) |
+| AI Expand (outpainting) | `c_pad,b_gen_fill,w_<w>,h_<h>` — generative fill extends the canvas to 1:1, 4:5, 16:9, 9:16 |
+| Creative effects | `e_oil_paint`, `e_cartoonify`, `e_grayscale`, `e_vignette` |
 | Smart crops (1:1, 4:5, 16:9) | `c_fill,g_auto,ar_<ratio>` (AI gravity-aware cropping) |
+| Social Kit (5 platforms) | `c_fill,g_auto,w_<w>,h_<h>` per platform: IG Post 1080×1080, IG Story 1080×1920, YT Thumbnail 1280×720, X Post 1200×675, LinkedIn Banner 1584×396 |
 | Delivery | `f_auto,q_auto` on every URL — automatic format (AVIF/WebP) + quality optimization |
 | Thumbnails / recents | `c_fill,g_auto,w_*,h_*` on-the-fly derived images |
 

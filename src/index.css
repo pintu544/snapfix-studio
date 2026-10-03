@@ -367,3 +367,130 @@ html, body {
   .brand-name { font-size: 1.15rem; }
   .hack-badge { font-size: 0.7rem; padding: 6px 10px; }
 }
+
+/* ---------- hero ---------- */
+.hero {
+  text-align: center;
+  padding: 48px 12px 8px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+.hero-kicker {
+  font-size: 0.75rem; font-weight: 800; letter-spacing: 0.22em;
+  color: var(--accent); margin: 0 0 14px;
+}
+.hero-title {
+  font-size: 2.6rem; line-height: 1.12; letter-spacing: -0.02em;
+  margin: 0 0 14px;
+}
+.hero-accent {
+  background: linear-gradient(135deg, #818cf8, #c084fc);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.hero-sub {
+  color: var(--muted); font-size: 1.02rem; line-height: 1.65;
+  max-width: 620px; margin: 0 auto 28px;
+}
+.sample-block { margin-bottom: 26px; }
+.sample-title { color: var(--muted); font-size: 0.9rem; margin: 0 0 12px; }
+.sample-row {
+  display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;
+}
+.sample-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 8px; cursor: pointer;
+  color: var(--text); font-family: inherit;
+  width: 190px; transition: transform .15s, border-color .15s;
+}
+.sample-card:hover { transform: translateY(-3px); border-color: var(--accent); }
+.sample-card img {
+  width: 100%; height: 110px; object-fit: cover;
+  border-radius: 9px; display: block;
+}
+.sample-label {
+  display: block; font-size: 0.85rem; font-weight: 600;
+  padding: 8px 0 4px;
+}
+.hero-upload { max-width: 640px; margin: 0 auto; }
+
+/* ---------- transform sections ---------- */
+.transform-section { margin-bottom: 18px; }
+.transform-section:last-of-type { margin-bottom: 0; }
+.transform-section-title {
+  font-size: 0.78rem; font-weight: 800; text-transform: uppercase;
+  letter-spacing: 0.1em; color: var(--muted);
+  margin: 0 0 10px;
+  display: flex; align-items: center; gap: 8px;
+}
+.transform-section-title::after {
+  content: ''; flex: 1; height: 1px; background: var(--border);
+}
+.sample-note {
+  margin: 12px 0 0; font-size: 0.8rem; color: var(--muted);
+  background: var(--bg-soft); border: 1px dashed var(--border);
+  border-radius: 10px; padding: 10px 12px; line-height: 1.5;
+}
+.sample-pill {
+  display: inline-block; margin-left: 8px;
+  font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;
+  background: var(--accent-soft); border: 1px solid rgba(99,102,241,.4);
+  color: var(--text); padding: 3px 9px; border-radius: 999px;
+  vertical-align: middle;
+}
+
+/* ---------- layout: stage column ---------- */
+.stage-col { display: flex; flex-direction: column; gap: 20px; min-width: 0; }
+.stage {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 16px;
+}
+
+/* ---------- social kit ---------- */
+.kit { margin-top: 0; }
+.kit-head {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  gap: 12px; margin-bottom: 14px; flex-wrap: wrap;
+}
+.kit-head .panel-title { margin: 0; }
+.kit-sub { color: var(--muted); font-size: 0.85rem; margin: 4px 0 0; }
+.kit-download-all { flex: 0 0 auto; }
+.kit-grid {
+  display: grid; gap: 12px;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+}
+.kit-card {
+  margin: 0; background: var(--bg-soft);
+  border: 1px solid var(--border); border-radius: 12px;
+  overflow: hidden; display: flex; flex-direction: column;
+}
+.kit-img-wrap { background: #0e1119; }
+.kit-img-wrap img { width: 100%; display: block; object-fit: cover; }
+.kit-card figcaption { padding: 10px; display: flex; flex-direction: column; gap: 2px; }
+.kit-label { font-size: 0.82rem; font-weight: 700; }
+.kit-dims { font-size: 0.72rem; color: var(--muted); margin-bottom: 8px; }
+.kit-dl { padding: 8px 10px; font-size: 0.82rem; }
+
+/* ---------- footer how-strip ---------- */
+.how-strip {
+  display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+.how-strip span {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 999px; padding: 8px 16px; font-size: 0.82rem; color: var(--muted);
+}
+.how-strip strong { color: var(--accent); }
+
+/* ---------- responsive additions ---------- */
+@media (max-width: 900px) {
+  .hero-title { font-size: 2rem; }
+}
+@media (max-width: 560px) {
+  .hero { padding: 32px 4px 4px; }
+  .hero-title { font-size: 1.65rem; }
+  .hero-sub { font-size: 0.92rem; }
+  .sample-card { width: calc(50% - 7px); }
+  .sample-card img { height: 90px; }
+  .kit-grid { grid-template-columns: repeat(2, 1fr); }
+  .kit-download-all { width: 100%; }
+}
