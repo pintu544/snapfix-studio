@@ -1,5 +1,7 @@
 # 📸 SnapFix Studio
 
+[![CI](https://github.com/pintu544/snapfix-studio/actions/workflows/ci.yml/badge.svg)](https://github.com/pintu544/snapfix-studio/actions/workflows/ci.yml)
+
 **AI photo transformer — upload a photo, apply one-click AI transformations, compare before/after, download.**
 
 Built for the **Pixels to Products — Cloudinary AI Hackathon 2026** · Track **PS-03 · Your Media-Savvy Startup**.
